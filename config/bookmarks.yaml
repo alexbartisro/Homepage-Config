@@ -1,0 +1,44 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Tools:
+    - Google Maps:
+      - abbr: Maps
+        icon: google-maps.png
+        href: https://www.google.com/maps
+        description: Maps & Navigation
+    - Studio:
+      - abbr: Studio
+        icon: youtube.png
+        href: https://studio.youtube.com
+    - Qwant:
+      - abbr: Qwant
+        icon: https://www.qwant.com/public/favicon.066f5ee2ab77b590bb5846c32c57cb84.ico
+        href: https://qwant.com
+    - Gemini:
+      - abbr: Gemini
+        icon: https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/gemini-color.png
+        href: https://gemini.google.com
+- Social:
+    - Reddit:
+        - abbr: RE
+          icon: reddit.png
+          href: https://reddit.com/
+    - Instagram:
+        - abbr: IG
+          icon: instagram.png
+          href: https://instagram.com/
+    - Facebook:
+        - abbr: FB
+          icon: facebook.png
+          href: https://facebook.com/
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          icon: youtube.png
+          href: https://youtube.com/
+    - Commafeed:
+        - icon: https://www.commafeed.com/favicon.ico
+          href: https://www.commafeed.com

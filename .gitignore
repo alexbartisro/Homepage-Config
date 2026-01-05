@@ -1,0 +1,15 @@
+.env
+*.log
+.DS_Store
+# Scrutiny DB
+scrutiny/
+
+# Local backups
+*.backup
+backup.*
+config/backup.*
+
+# Private data & sessions
+cronmaster/
+**/data/
+**/sessions/

@@ -1,0 +1,74 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    env_file: .env
+    user: "1000:996"
+    group_add:
+      - "996"
+    privileged: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt/SSD:/mnt/SSD:ro
+      - /NAS:/NAS:ro
+      - /NAS2:/NAS2:ro
+      - /NAS3:/NAS3:ro
+    devices:
+      - /dev/sda:/dev/sda
+      - /dev/sdb:/dev/sdb
+      - /dev/sdc:/dev/sdc
+      - /dev/sdd:/dev/sdd
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - HOMEPAGE_ALLOWED_HOSTS=*
+      - TZ=Europe/Bucharest
+  samba:
+    image: dperson/samba
+    container_name: samba
+    restart: unless-stopped
+    network_mode: host
+    env_file: .env
+    environment:
+      - TZ=Europe/Bucharest
+      - USERID=1000
+      - GROUPID=1000
+    volumes:
+      - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf:ro
+      - /NAS:/shares/NAS
+      - /NAS2:/shares/NAS2
+      - /NAS3:/shares/NAS3
+      - /mnt/SSD/movies:/shares/Movies
+    command: -u "${SAMBA_USER};${SAMBA_PASS}"
+  scrutiny:
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    container_name: scrutiny
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - 8085:8080
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Bucharest
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ./scrutiny/config:/opt/scrutiny/config
+      - ./scrutiny/influxdb:/opt/scrutiny/influxdb
+      - /dev:/dev
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400
+      - WATCHTOWER_RUN_ONCE=false
+      - TZ=Europe/Bucharest

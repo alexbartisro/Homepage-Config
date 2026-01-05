@@ -1,0 +1,26 @@
+# ~/docker/homepage/config/settings.yaml
+title: "THE BRAIN // CORE_UNIT"
+background: https://images.alphacoders.com/133/1338304.png
+theme: dark
+color: slate
+cardBlur: sm
+
+layout:
+  Media:
+    style: row 
+    columns: 3
+
+quicklaunch:
+  provider: custom
+  url: https://www.qwant.com/?t=web&q=
+  target: _self
+  suggestionUrl: https://api.qwant.com/api/suggest/?client=opensearch&q=
+  hideInternetSearch: false
+  showSearchSuggestions: true
+
+appearance:
+  colors:
+    gray:
+      900: "#050505"
+    slate:
+      700: "rgba(20, 20, 35, 0.8)"

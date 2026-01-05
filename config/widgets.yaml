@@ -1,0 +1,37 @@
+- resources:
+    cpu: true
+    memory: true
+    uptime: true
+
+- resources:
+    label: Root
+    disk:
+      - /
+
+- resources:
+    label: SSD
+    disk:
+      - /mnt/SSD
+
+- resources:
+    label: NAS
+    disk:
+      - /NAS
+
+- resources:
+    label: NAS 2
+    disk:
+      - /NAS2
+
+- resources:
+    label: NAS3
+    disk:
+      - /NAS3
+
+- openmeteo:
+    label: Cluj-Napoca
+    latitude: {{HOMEPAGE_VAR_LATITUDE}}
+    longitude: {{HOMEPAGE_VAR_LONGITUDE}}
+    timezone: Europe/Bucharest
+    units: metric
+    cache: 5
