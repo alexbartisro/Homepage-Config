@@ -163,4 +163,11 @@
         href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:5800
         description: Transcodare Video H.265
         server: my-docker
-        container: handbreak
+        container: handbrake
+- Security:
+    - Vaultwarden:
+        icon: vaultwarden
+        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8086
+        description: Password Manager
+        server: my-docker
+        container: vaultwarden
