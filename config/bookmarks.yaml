@@ -50,3 +50,7 @@
         - abbr: OLX
           icon: https://www.olx.ro/favicon.ico
           href: https://olx.ro
+    - Emag:
+        - abbr: EM
+          icon: https://www.emag.ro/favicon.ico
+          href: https://emag.ro

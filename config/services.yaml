@@ -1,55 +1,55 @@
 - Media:
     - Jellyfin:
         icon: jellyfin.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8096
+        href: http://jellyfin.lan
         server: my-docker
         container: jellyfin
         description: Media Server
         widget:
           type: jellyfin
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8096
+          url: http://jellyfin:8096
           key: {{HOMEPAGE_VAR_JELLYFIN_KEY}}
           enableBlocks: true
           enableNowPlaying: true
     - Plex:
         icon: plex.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:32400/web
+        href: http://plex.lan
         server: my-docker
         container: plex
         widget:
           type: plex
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:32400
+          url: http://plex:32400
           key: {{HOMEPAGE_VAR_PLEX_KEY}}
     - Audiobookshelf:
         icon: audiobookshelf.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8089
+        href: http://audiobookshelf.lan
         server: my-docker
         container: audiobookshelf
         widget:
           type: audiobookshelf
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8089
+          url: http://audiobookshelf
           key: {{HOMEPAGE_VAR_ABS_KEY}}
 
 - Downloads:
     - Transmission:
         icon: transmission.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:9091
+        href: http://transmission.lan
         server: my-docker
         container: transmission
         description: Torrent Client
         widget:
           type: transmission
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:9091
+          url: http://transmission.lan:9091
           username: {{HOMEPAGE_VAR_TRANSMISSION_USER}}
           password: {{HOMEPAGE_VAR_TRANSMISSION_PASS}}
     - Radarr:
         icon: radarr.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:7878
+        href: http://radarr.lan
         server: my-docker
         container: radarr
         widget:
           type: radarr
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:7878
+          url: http://radarr:7878
           key: {{HOMEPAGE_VAR_RADARR_KEY}}
     - SickChill:
         icon: sickchill.png
@@ -58,38 +58,38 @@
         container: sickchill
     - LazyLibrarian:
         icon: lazylibrarian.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:5299
+        href: http://lazylibrarian.lan
         server: my-docker
         container: lazylibrarian
 
 - System:
     - Portainer:
         icon: portainer.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:9000
+        href: http://portainer.lan
         server: my-docker
         container: portainer
         widget:
           type: portainer
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:9000
+          url: http://portainer:9000
           env: 3
           key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
     - Scrutiny:
         icon: scrutiny.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8085
+        href: http://scrutiny.lan
         description: Drive Health
         server: my-docker
         container: scrutiny
         widget:
           type: scrutiny
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8085
+          url: http://scrutiny:8080
     - Glances:
         icon: glances.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:61208
+        href: http://glances.lan
         server: my-docker
         container: glances
         widget:
           type: glances
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:61208
+          url: http://glances:61208
           metric: disk
     - iLO Management:
         icon: hp.png
@@ -102,20 +102,20 @@
 - Network:
     - Speedtest:
         icon: speedtest-tracker.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8083
+        href: http://speedtest.lan
         server: my-docker
         container: speedtest-tracker
         widget:
           type: speedtest
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8083
+          url: http://speedtest-tracker:80
     - AdGuard:
         icon: adguard-home.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8084
+        href: http://adguard.lan
         server: my-docker
         container: adguard
         widget:
           type: adguard
-          url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8084
+          url: http://adguard
           username: {{HOMEPAGE_VAR_ADGUARD_USER}}
           password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
     - Homebridge:
@@ -128,6 +128,14 @@
           url: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8581
           username: {{HOMEPAGE_VAR_HOMEBRIDGE_USER}}
           password: {{HOMEPAGE_VAR_HOMEBRIDGE_PASS}}
+    - Traefik:
+       icon: traefik.png
+       href: http://traefik.lan
+       server: my-docker
+       container: traefik
+       widget:
+          type: traefik
+          url: http://traefik:8080
     - Router TP-Link:
         icon: tp-link.png
         href: {{HOMEPAGE_VAR_TPLINKROUTER}}
@@ -139,35 +147,28 @@
 - Office & Tools:
     - Stirling-PDF:
         icon: stirling-pdf.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8086
+        href: http://stirling.lan
         server: my-docker
         container: stirling-pdf
     - FileBrowser:
         icon: filebrowser.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8082
+        href: http://filebrowser.lan
         server: my-docker
         container: filebrowser
     - Duplicati:
         icon: duplicati.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8200
+        href: http://duplicati.lan
         server: my-docker
         container: duplicati
-    - Gmail (Bichon):
+    - Bichon:
         icon: si-gmail
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:15630
+        href: http://bichon.lan
         description: Local Gmail Backup
         server: my-docker
         container: bichon
     - HandBrake:
         icon: handbrake.png
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:5800
+        href: http://handbrake.lan
         description: Transcodare Video H.265
         server: my-docker
         container: handbrake
-- Security:
-    - Vaultwarden:
-        icon: vaultwarden
-        href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8086
-        description: Password Manager
-        server: my-docker
-        container: vaultwarden

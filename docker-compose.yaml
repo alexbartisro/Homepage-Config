@@ -7,6 +7,8 @@ services:
     group_add:
       - "996"
     privileged: true
+    networks:
+      - proxy
     ports:
       - 3000:3000
     volumes:
@@ -27,11 +29,17 @@ services:
       - PGID=1000
       - HOMEPAGE_ALLOWED_HOSTS=*
       - TZ=Europe/Bucharest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`thebrain.lan`)"
+      - "traefik.http.routers.homepage.entrypoints=web"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+
   samba:
     image: dperson/samba
     container_name: samba
     restart: unless-stopped
-    network_mode: host
+    network_mode: host # Samba rămâne pe HOST, nu poate fi pus în proxy
     env_file: .env
     environment:
       - TZ=Europe/Bucharest
@@ -44,11 +52,14 @@ services:
       - /NAS3:/shares/NAS3
       - /mnt/SSD/movies:/shares/Movies
     command: -u "${SAMBA_USER};${SAMBA_PASS}"
+
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus
     container_name: scrutiny
     restart: unless-stopped
     privileged: true
+    networks:
+      - proxy
     ports:
       - 8085:8080
     environment:
@@ -60,6 +71,11 @@ services:
       - ./scrutiny/config:/opt/scrutiny/config
       - ./scrutiny/influxdb:/opt/scrutiny/influxdb
       - /dev:/dev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.scrutiny.rule=Host(`scrutiny.lan`)"
+      - "traefik.http.routers.scrutiny.entrypoints=web"
+      - "traefik.http.services.scrutiny.loadbalancer.server.port=8080"
 
   watchtower:
     image: containrrr/watchtower
@@ -72,3 +88,7 @@ services:
       - WATCHTOWER_POLL_INTERVAL=86400
       - WATCHTOWER_RUN_ONCE=false
       - TZ=Europe/Bucharest
+
+networks:
+  proxy:
+    external: true
