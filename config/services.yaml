@@ -91,6 +91,11 @@
           type: glances
           url: http://glances:61208
           metric: disk
+    - Duplicati:
+        icon: duplicati.png
+        href: http://duplicati.lan
+        server: my-docker
+        container: duplicati
     - iLO Management:
         icon: hp.png
         href: {{HOMEPAGE_VAR_ILO_IP}}
@@ -136,6 +141,12 @@
        widget:
           type: traefik
           url: http://traefik:8080
+    - PorTracker:
+        icon: mdi-lan-check
+        href: http://portracker.lan
+        description: Open Port Monitor
+        server: my-docker
+        container: portracker
     - Router TP-Link:
         icon: tp-link.png
         href: {{HOMEPAGE_VAR_TPLINKROUTER}}
@@ -155,11 +166,17 @@
         href: http://filebrowser.lan
         server: my-docker
         container: filebrowser
-    - Duplicati:
-        icon: duplicati.png
-        href: http://duplicati.lan
+    - Paperless:
+        tab: Main
+        icon: paperless-ngx.png
+        href: http://paperless.lan
+        description: Bill/Receipt Management & OCR
         server: my-docker
-        container: duplicati
+        container: paperless-ngx
+        widget:
+          type: paperlessngx
+          url: http://paperless-ngx:8000/
+          key: {{HOMEPAGE_VAR_PAPERLESS_TOKEN}}
     - Bichon:
         icon: si-gmail
         href: http://bichon.lan

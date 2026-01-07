@@ -4,11 +4,17 @@ background: https://images.alphacoders.com/133/1338304.png
 theme: dark
 color: slate
 cardBlur: sm
+headerStyle: boxedWidgets
+target: _self
+fullWidth: true
 
 layout:
   Media:
+    tab: Main
     style: row 
     columns: 3
+  Development:
+    tab: Development
 
 quicklaunch:
   provider: custom
