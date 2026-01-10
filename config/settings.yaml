@@ -13,6 +13,10 @@ layout:
     tab: Main
     style: row 
     columns: 3
+  Office & Tools:
+    tab: Main
+    style: row 
+    columns: 3
   Development:
     tab: Development
 

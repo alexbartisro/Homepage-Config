@@ -12,14 +12,14 @@
       - abbr: Studio
         icon: youtube.png
         href: https://studio.youtube.com
-    - Qwant:
-      - abbr: Qwant
-        icon: https://www.qwant.com/public/favicon.066f5ee2ab77b590bb5846c32c57cb84.ico
-        href: https://qwant.com
     - Gemini:
       - abbr: Gemini
         icon: https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/gemini-color.png
         href: https://gemini.google.com
+    - Github:
+        - abbr: GH
+          icon: https://github.com/favicon.ico
+          href: https://github.com/
 - Social:
     - Reddit:
         - abbr: RE
@@ -58,3 +58,7 @@
         - abbr: EM
           icon: https://www.emag.ro/favicon.ico
           href: https://emag.ro
+    - Aliexpress:
+        - abbr: ALI 
+          icon: https://www.aliexpress.com/favicon.ico
+          href: https://aliexpress.com

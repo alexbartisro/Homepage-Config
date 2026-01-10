@@ -82,24 +82,15 @@
           url: http://portainer:9000
           env: 3
           key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
-    - Scrutiny:
-        icon: scrutiny.png
-        href: http://scrutiny.lan
-        description: Drive Health
-        server: my-docker
-        container: scrutiny
+    - Proxmox:
+        icon: proxmox
+        href: https://proxmox.lan
+        siteMonitor: https://proxmox.lan
         widget:
-          type: scrutiny
-          url: http://scrutiny:8080
-    - Glances:
-        icon: glances.png
-        href: http://glances.lan
-        server: my-docker
-        container: glances
-        widget:
-          type: glances
-          url: http://glances:61208
-          metric: disk
+            type: proxmox
+            url: https://proxmox.lan
+            username: {{HOMEPAGE_VAR_PROXMOX_TOKEN_ID}}
+            password: {{HOMEPAGE_VAR_PROXMOX_TOKEN_PASSWORD}}
     - Duplicati:
         icon: duplicati.png
         href: http://duplicati.lan
@@ -123,16 +114,6 @@
         widget:
           type: speedtest
           url: http://speedtest-tracker:80
-    - AdGuard:
-        icon: adguard-home.png
-        href: http://adguard.lan
-        server: my-docker
-        container: adguard
-        widget:
-          type: adguard
-          url: http://adguard
-          username: {{HOMEPAGE_VAR_ADGUARD_USER}}
-          password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
     - Homebridge:
         icon: homebridge.png
         href: http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8581
@@ -151,21 +132,6 @@
        widget:
           type: traefik
           url: http://traefik:8080
-    - Proxmox:
-        icon: proxmox
-        href: https://proxmox.lan
-        siteMonitor: https://proxmox.lan
-        widget:
-            type: proxmox
-            url: https://proxmox.lan
-            username: {{HOMEPAGE_VAR_PROXMOX_TOKEN_ID}}
-            password: {{HOMEPAGE_VAR_PROXMOX_TOKEN_PASSWORD}}
-    - PorTracker:
-        icon: mdi-lan-check
-        href: http://portracker.lan
-        description: Open Port Monitor
-        server: my-docker
-        container: portracker
     - Router TP-Link:
         icon: tp-link.png
         href: {{HOMEPAGE_VAR_TPLINKROUTER}}
@@ -174,6 +140,42 @@
         icon: asus.png
         href: {{HOMEPAGE_VAR_ASUSROUTER}}
         siteMonitor: {{HOMEPAGE_VAR_ASUSROUTER}}
+- Monitoring:
+    - Scrutiny:
+        icon: scrutiny.png
+        href: http://scrutiny.lan
+        description: Drive Health
+        server: my-docker
+        container: scrutiny
+        widget:
+          type: scrutiny
+          url: http://scrutiny:8080
+    - AdGuard:
+        icon: adguard-home.png
+        href: http://adguard.lan
+        server: my-docker
+        container: adguard
+        widget:
+          type: adguard
+          url: http://adguard
+          username: {{HOMEPAGE_VAR_ADGUARD_USER}}
+          password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
+    - Glances:
+        icon: glances.png
+        href: http://glances.lan
+        description: System Monitor
+        server: my-docker
+        container: glances
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: disk
+    - PorTracker:
+        icon: mdi-lan-check
+        href: http://portracker.lan
+        description: Open Port Monitor
+        server: my-docker
+        container: portracker
 - Office & Tools:
     - Stirling-PDF:
         icon: stirling-pdf.png
@@ -185,17 +187,6 @@
         href: http://filebrowser.lan
         server: my-docker
         container: filebrowser
-    - Paperless:
-        tab: Main
-        icon: paperless-ngx.png
-        href: http://paperless.lan
-        description: Bill/Receipt Management & OCR
-        server: my-docker
-        container: paperless-ngx
-        widget:
-          type: paperlessngx
-          url: http://paperless-ngx:8000/
-          key: "{{HOMEPAGE_VAR_PAPERLESS_TOKEN}}"
     - Bichon:
         icon: si-gmail
         href: http://bichon.lan
@@ -208,3 +199,14 @@
         description: Transcodare Video H.265
         server: my-docker
         container: handbrake
+    - Paperless:
+        tab: Main
+        icon: paperless-ngx.png
+        href: http://paperless.lan
+        description: Bill/Receipt Management & OCR
+        server: my-docker
+        container: paperless-ngx
+        widget:
+          type: paperlessngx
+          url: http://paperless-ngx:8000/
+          key: "{{HOMEPAGE_VAR_PAPERLESS_TOKEN}}"
