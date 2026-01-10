@@ -33,6 +33,10 @@
         - abbr: FB
           icon: facebook.png
           href: https://facebook.com/
+    - Discord:
+        - abbr: DIS
+          icon: discord.png
+          href: https://discord.com 
 - Entertainment:
     - YouTube:
         - abbr: YT

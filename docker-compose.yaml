@@ -15,9 +15,8 @@ services:
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /mnt/SSD:/mnt/SSD:ro
-      - /NAS:/NAS:ro
+      - /mediavault:/mediavault:ro
       - /NAS2:/NAS2:ro
-      - /NAS3:/NAS3:ro
     devices:
       - /dev/sda:/dev/sda
       - /dev/sdb:/dev/sdb
@@ -47,9 +46,8 @@ services:
       - GROUPID=1000
     volumes:
       - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf:ro
-      - /NAS:/shares/NAS
+      - /mediavault:/shares/"Media Vault"
       - /NAS2:/shares/NAS2
-      - /NAS3:/shares/NAS3
       - /mnt/SSD/movies:/shares/Movies
     command: -u "${SAMBA_USER};${SAMBA_PASS}"
 
@@ -76,18 +74,6 @@ services:
       - "traefik.http.routers.scrutiny.rule=Host(`scrutiny.lan`)"
       - "traefik.http.routers.scrutiny.entrypoints=web"
       - "traefik.http.services.scrutiny.loadbalancer.server.port=8080"
-
-  watchtower:
-    image: containrrr/watchtower
-    container_name: watchtower
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_POLL_INTERVAL=86400
-      - WATCHTOWER_RUN_ONCE=false
-      - TZ=Europe/Bucharest
 
 networks:
   proxy:

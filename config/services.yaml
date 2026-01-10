@@ -29,6 +29,15 @@
           type: audiobookshelf
           url: http://audiobookshelf
           key: {{HOMEPAGE_VAR_ABS_KEY}}
+    - Romm:
+       icon: romm.png
+       href: http://roms.lan
+       server: my-docker
+       container: romm
+       widget:
+          type: romm
+          url: http://roms.lan
+          fields: ["platforms", "totalRoms", "saves", "states"]
 
 - Downloads:
     - Transmission:
@@ -100,10 +109,11 @@
         icon: hp.png
         href: {{HOMEPAGE_VAR_ILO_IP}}
         siteMonitor: {{HOMEPAGE_VAR_ILO_IP}}
-    - Watchtower:
-        icon: watchtower.png
+    - Tugtainer:
+        icon: tugtainer.png
+        href: http://tugtainer.lan
         server: my-docker
-        container: watchtower
+        container: tugtainer
 - Network:
     - Speedtest:
         icon: speedtest-tracker.png
@@ -141,6 +151,15 @@
        widget:
           type: traefik
           url: http://traefik:8080
+    - Proxmox:
+        icon: proxmox
+        href: https://proxmox.lan
+        siteMonitor: https://proxmox.lan
+        widget:
+            type: proxmox
+            url: https://proxmox.lan
+            username: {{HOMEPAGE_VAR_PROXMOX_TOKEN_ID}}
+            password: {{HOMEPAGE_VAR_PROXMOX_TOKEN_PASSWORD}}
     - PorTracker:
         icon: mdi-lan-check
         href: http://portracker.lan
@@ -176,7 +195,7 @@
         widget:
           type: paperlessngx
           url: http://paperless-ngx:8000/
-          key: {{HOMEPAGE_VAR_PAPERLESS_TOKEN}}
+          key: "{{HOMEPAGE_VAR_PAPERLESS_TOKEN}}"
     - Bichon:
         icon: si-gmail
         href: http://bichon.lan

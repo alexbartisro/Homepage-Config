@@ -14,19 +14,14 @@
       - /mnt/SSD
 
 - resources:
-    label: NAS
+    label: Media Vault
     disk:
-      - /NAS
+      - /mediavault
 
 - resources:
-    label: NAS 2
+    label: YT Backup
     disk:
       - /NAS2
-
-- resources:
-    label: NAS3
-    disk:
-      - /NAS3
 
 - openmeteo:
     label: Cluj-Napoca
