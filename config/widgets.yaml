@@ -1,8 +1,14 @@
-- resources:
+- glances:
+    url: http://glances.lan
+    version: 4
     cpu: true
-    memory: true
+    mem: true
+    cputemp: true
     uptime: true
-
+    diskUnits: bytes
+    expanded: true
+    label: The Brain
+    
 - resources:
     label: Root
     disk:
@@ -22,6 +28,13 @@
     label: YT Backup
     disk:
       - /NAS2
+      
+- datetime:
+    text_size: l
+    format:
+      dateStyle: short
+      timeStyle: short
+      hour12: false
 
 - openmeteo:
     label: Cluj-Napoca

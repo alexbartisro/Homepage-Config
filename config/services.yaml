@@ -170,16 +170,18 @@
           url: http://adguard
           username: {{HOMEPAGE_VAR_ADGUARD_USER}}
           password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
-    - Glances:
+    - Glances CPU:
         icon: glances.png
         href: http://glances.lan
-        description: System Monitor
         server: my-docker
         container: glances
         widget:
           type: glances
-          url: http://glances:61208
-          metric: disk
+          url: http://glances.lan
+          version: 4
+          metric: cpu
+          refreshInterval: 5000
+          pointsLimit: 15
     - WatchYourLAN:
         icon: watchyourlan.png
         href: http://watchyour.lan:8840
