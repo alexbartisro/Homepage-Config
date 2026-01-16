@@ -29,6 +29,16 @@
           type: audiobookshelf
           url: http://audiobookshelf
           key: {{HOMEPAGE_VAR_ABS_KEY}}
+    - Immich:
+        icon: immich.png
+        href: http://immich.lan
+        server: my-docker
+        container: immich_server
+        widget:
+          type: immich
+          url: http://immich.lan
+          key: {{HOMEPAGE_VAR_IMMICH_KEY}}
+          version: 2
     - Romm:
        icon: romm.png
        href: http://roms.lan
@@ -170,12 +180,43 @@
           type: glances
           url: http://glances:61208
           metric: disk
+    - WatchYourLAN:
+        icon: watchyourlan.png
+        href: http://watchyour.lan:8840
+        description: Network Scanner
+        server: my-docker
+        container: watchyourlan
+        widget:
+          type: customapi
+          url: http://watchyour.lan:8840/api/status
+          refreshInterval: 30000
+          method: GET
+          display: block
+          mappings:
+            - field: Online
+              label: Online
+              format: number
+            - field: Known
+              label: Known
+              format: number
+            - field: Unknown
+              label: Unknown
+              format: number
+            - field: Total
+              label: Total
+              format: number
     - PorTracker:
         icon: mdi-lan-check
         href: http://portracker.lan
         description: Open Port Monitor
         server: my-docker
         container: portracker
+    - Dozzle:
+        icon: dozzle
+        href: http://dozzle.lan
+        description: Docker Log Monitor
+        server: my-docker
+        container: dozzle
 - Office & Tools:
     - Stirling-PDF:
         icon: stirling-pdf.png
