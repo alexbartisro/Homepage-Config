@@ -44,6 +44,7 @@ services:
       - TZ=Europe/Bucharest
       - USERID=1000
       - GROUPID=1000
+      - COLLECTOR_CRON="0 */12 * * *"
     volumes:
       - /home/alex/docker/samba/lib:/var/lib/samba
       - /home/alex/docker/samba/cache:/var/cache/samba

@@ -232,11 +232,17 @@
           type: homeassistant
           url: http://hass.lan
           key: {{HOMEPAGE_VAR_HASS_KEY}}
-          entity: sensor.smart_plug_mini_power 
-          chart: true
+          container: homeassistant
+          entity: sensor.smart_plug_mini_power
           custom:
-            - state: sensor.smart_plug_mini_power
-              label: W
+          - state: sensor.smart_plug_mini_power
+            label: Power
+          - state: sensor.actual_monthly_homelab_cost
+            label: "Current Price"
+            unit: " RON"
+          - state: sensor.estimated_monthly_energy_cost
+            label: "Monthly Estimate"
+            unit: " RON"
     - PorTracker:
         icon: mdi-lan-check
         href: http://portracker.lan
