@@ -3,7 +3,7 @@
 # 🧠 THE BRAIN // Homeserver Dashboard
 
 ## Homepage Config Files
-A personal collection of example configuration files for ![gethomepage/homepage](https://github.com/gethomepage/homepage).
+A personal collection of example configuration files for [homepage](https://github.com/gethomepage/homepage).
 
 ![TheBrain Dashboard](images/dashboard.png)
 
