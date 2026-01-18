@@ -142,6 +142,25 @@
        widget:
           type: traefik
           url: http://traefik:8080
+    - AdGuard:
+        icon: adguard-home.png
+        href: http://adguard.lan
+        server: my-docker
+        container: adguard
+        widget:
+          type: adguard
+          url: http://adguard
+          username: {{HOMEPAGE_VAR_ADGUARD_USER}}
+          password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
+    - AdGuard TheSpine:
+        icon: adguard-home.png
+        href: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:8080
+        siteMonitor: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:8080
+        widget:
+          type: adguard
+          url: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:8080
+          username: {{HOMEPAGE_VAR_ADGUARD_SPINE_USER}}
+          password: {{HOMEPAGE_VAR_ADGUARD_SPINE_PASS}}
     - Router TP-Link:
         icon: tp-link.png
         href: {{HOMEPAGE_VAR_TPLINKROUTER}}
@@ -160,16 +179,6 @@
         widget:
           type: scrutiny
           url: http://scrutiny:8080
-    - AdGuard:
-        icon: adguard-home.png
-        href: http://adguard.lan
-        server: my-docker
-        container: adguard
-        widget:
-          type: adguard
-          url: http://adguard
-          username: {{HOMEPAGE_VAR_ADGUARD_USER}}
-          password: {{HOMEPAGE_VAR_ADGUARD_PASS}}
     - Glances CPU:
         icon: glances.png
         href: http://glances.lan
@@ -207,6 +216,27 @@
             - field: Total
               label: Total
               format: number
+    - Uptime Kuma:
+        icon: uptime-kuma
+        href: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:3001
+        description: Server Monitoring
+        siteMonitor: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:3001
+        widget:
+          type: uptimekuma
+          url: http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:3001
+          slug: alexhomelab
+    - Homelab Power Usage:
+        icon: home-assistant.png
+        href: http://hass.lan
+        widget:
+          type: homeassistant
+          url: http://hass.lan
+          key: {{HOMEPAGE_VAR_HASS_KEY}}
+          entity: sensor.smart_plug_mini_power 
+          chart: true
+          custom:
+            - state: sensor.smart_plug_mini_power
+              label: W
     - PorTracker:
         icon: mdi-lan-check
         href: http://portracker.lan
@@ -236,12 +266,6 @@
         description: Local Gmail Backup
         server: my-docker
         container: bichon
-    - HandBrake:
-        icon: handbrake.png
-        href: http://handbrake.lan
-        description: Transcodare Video H.265
-        server: my-docker
-        container: handbrake
     - Paperless:
         tab: Main
         icon: paperless-ngx.png

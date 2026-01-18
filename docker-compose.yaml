@@ -45,10 +45,15 @@ services:
       - USERID=1000
       - GROUPID=1000
     volumes:
+      - /home/alex/docker/samba/lib:/var/lib/samba
+      - /home/alex/docker/samba/cache:/var/cache/samba
+      - /home/alex/docker/samba/logs:/var/log/samba
       - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf:ro
       - /mediavault:/shares/"Media Vault"
       - /NAS2:/shares/NAS2
       - /mnt/SSD/movies:/shares/Movies
+    tmpfs:
+      - /run/samba
     command: -u "${SAMBA_USER};${SAMBA_PASS}"
 
   scrutiny:

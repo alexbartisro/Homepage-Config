@@ -1,4 +1,9 @@
+<img width="1024" alt="banner_light@2x" src="https://github.com/alexbartisro/Homepage-Config/blob/main/images/homepage.png?raw=true"/>
+
 # 🧠 THE BRAIN // Homeserver Dashboard
+
+## Homepage Config Files
+A personal collection of example configuration files for ![gethomepage/homepage](https://github.com/gethomepage/homepage).
 
 ![TheBrain Dashboard](images/dashboard.png)
 
