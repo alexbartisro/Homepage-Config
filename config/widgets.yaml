@@ -1,5 +1,5 @@
 - glances:
-    url: http://glances.lan
+    url: {{HOMEPAGE_VAR_GLANCES_URL}}
     version: 4
     cpu: true
     mem: true

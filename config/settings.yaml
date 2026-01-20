@@ -17,8 +17,10 @@ layout:
     tab: Main
     style: row 
     columns: 3
-  Development:
+  Dev Stuff:
     tab: Development
+    style: row
+    columns: 1
 
 quicklaunch:
   provider: custom
