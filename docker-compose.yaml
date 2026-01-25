@@ -37,27 +37,21 @@ services:
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
 
   samba:
-    image: dperson/samba
+    image: servercontainers/samba:latest
     container_name: samba
     restart: unless-stopped
     network_mode: host
-    env_file: .env
     environment:
       - TZ=Europe/Bucharest
-      - USERID=1000
-      - GROUPID=1000
-      - COLLECTOR_CRON="0 */12 * * *"
+      - SAMBA_CONF_LOG_LEVEL=1
+      - SAMBA_USERS=${SAMBA_USER};${SAMBA_PASS};1000;1000
     volumes:
       - /home/alex/docker/samba/lib:/var/lib/samba
-      - /home/alex/docker/samba/cache:/var/cache/samba
       - /home/alex/docker/samba/logs:/var/log/samba
-      - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf:ro
-      - /mediavault:/shares/"Media Vault"
+      - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf
+      - /mediavault:/shares/MediaVault
       - /NAS2:/shares/NAS2
       - /mnt/SSD/movies:/shares/Movies
-    tmpfs:
-      - /run/samba
-    command: -u "${SAMBA_USER};${SAMBA_PASS}"
 
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus

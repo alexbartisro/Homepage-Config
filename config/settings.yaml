@@ -6,7 +6,7 @@ color: slate
 cardBlur: sm
 headerStyle: boxedWidgets
 target: _self
-fullWidth: true
+#fullWidth: true
 
 layout:
   Media:
@@ -18,15 +18,15 @@ layout:
     style: row 
     columns: 3
   Dev Stuff:
+    header: false
     tab: Development
-    style: row
-    columns: 1
+    columns: 2
 
 quicklaunch:
   provider: custom
-  url: https://www.qwant.com/?t=web&q=
+  url: https://www.ecosia.org/search?method=index&q=
   target: _self
-  suggestionUrl: https://api.qwant.com/api/suggest/?client=opensearch&q=
+  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
   hideInternetSearch: false
   showSearchSuggestions: true
 

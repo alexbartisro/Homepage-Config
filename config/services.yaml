@@ -89,9 +89,19 @@
           type: radarr
           url: "http://radarr:7878"
           key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
+    - Prowlarr:
+        icon: prowlarr.png
+        href: "{{HOMEPAGE_VAR_PROWLARR_URL}}"
+        server: my-docker
+        container: prowlarr
+        useEqualHeights: true
+        widget:
+          type: prowlarr
+          url: "{{HOMEPAGE_VAR_PROWLARR_URL}}"
+          key: "{{HOMEPAGE_VAR_PROWLARR_KEY}}"
     - SickChill:
         icon: sickchill.png
-        href: "{{HOMEPAGE_VAR_SICKCHILL_URL}}"
+        href: "http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8081"
         server: my-docker
         container: sickchill
         description: Find TVShows
@@ -133,6 +143,18 @@
         server: my-docker
         container: duplicati
         useEqualHeights: true
+    - Kopia:
+        icon: kopia.png
+        description: Photo Archive Backup
+        href: "{{HOMEPAGE_VAR_KOPIA_URL}}"
+        server: my-docker
+        container: kopia
+        useEqualHeights: true
+        widget:
+            type: kopia
+            url: "http://kopia:5115"
+            username: "{{HOMEPAGE_VAR_KOPIA_USERNAME}}"
+            password: "{{HOMEPAGE_VAR_KOPIA_PASS}}"
     - iLO Management:
         icon: hp.png
         href: "{{HOMEPAGE_VAR_ILO_IP}}"
@@ -163,7 +185,7 @@
         useEqualHeights: true
         widget:
           type: homebridge
-          url: "http://homebridge:8581"
+          url: "http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8581"
           username: "{{HOMEPAGE_VAR_HOMEBRIDGE_USER}}"
           password: "{{HOMEPAGE_VAR_HOMEBRIDGE_PASS}}"
     - Traefik:
@@ -200,11 +222,6 @@
         icon: tp-link.png
         href: "{{HOMEPAGE_VAR_TPLINKROUTER}}"
         siteMonitor: "{{HOMEPAGE_VAR_TPLINKROUTER}}"
-        useEqualHeights: true
-    - Router Asus:
-        icon: asus.png
-        href: "{{HOMEPAGE_VAR_ASUSROUTER}}"
-        siteMonitor: "{{HOMEPAGE_VAR_ASUSROUTER}}"
         useEqualHeights: true
 
 - Monitoring:
