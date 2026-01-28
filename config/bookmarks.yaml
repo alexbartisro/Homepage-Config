@@ -24,6 +24,10 @@
         - abbr: DH
           icon: https://hub.docker.com/favicon.ico
           href: https://hub.docker.com/
+    - Tailscale Admin:
+        - abbr: TS
+          icon: https://tailscale.com/favicon.ico
+          href: https://login.tailscale.com/admin/machines
           
 - Social:
     - Reddit:

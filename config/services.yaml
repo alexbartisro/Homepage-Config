@@ -57,13 +57,6 @@
           type: romm
           url: "http://romm:8080"
           fields: ["platforms", "totalRoms", "saves", "states"]
-    - Handbrake:
-        icon: handbrake.png
-        href: "{{HOMEPAGE_VAR_HANDBRAKE_URL}}"
-        server: my-docker
-        container: handbrake
-        description: Video Transcoder
-        useEqualHeights: true
 
 - Downloads:
     - Transmission:
@@ -89,6 +82,17 @@
           type: radarr
           url: "http://radarr:7878"
           key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
+    - Sonarr:
+        icon: sonarr.png
+        href: "{{HOMEPAGE_VAR_SONARR_URL}}"
+        server: my-docker
+        container: sonarr
+        description: Find TVShows
+        useEqualHeights: true
+        widget:
+          type: sonarr
+          url: "http://sonarr:8989"
+          key: "{{HOMEPAGE_VAR_SONARR_KEY}}"
     - Prowlarr:
         icon: prowlarr.png
         href: "{{HOMEPAGE_VAR_PROWLARR_URL}}"
@@ -99,13 +103,6 @@
           type: prowlarr
           url: "{{HOMEPAGE_VAR_PROWLARR_URL}}"
           key: "{{HOMEPAGE_VAR_PROWLARR_KEY}}"
-    - SickChill:
-        icon: sickchill.png
-        href: "http://{{HOMEPAGE_VAR_INTERNAL_IP}}:8081"
-        server: my-docker
-        container: sickchill
-        description: Find TVShows
-        useEqualHeights: true
     - LazyLibrarian:
         icon: lazylibrarian.png
         href: "{{HOMEPAGE_VAR_LAZYLIBRARIAN_URL}}"
@@ -218,10 +215,11 @@
           url: "http://{{HOMEPAGE_VAR_ADGUARD_SPINE_IP}}:8080"
           username: "{{HOMEPAGE_VAR_ADGUARD_SPINE_USER}}"
           password: "{{HOMEPAGE_VAR_ADGUARD_SPINE_PASS}}"
-    - Router TP-Link:
-        icon: tp-link.png
-        href: "{{HOMEPAGE_VAR_TPLINKROUTER}}"
-        siteMonitor: "{{HOMEPAGE_VAR_TPLINKROUTER}}"
+    - OpenWRT:
+        icon: openwrt.png
+        description: GL.iNet Router
+        href: "{{HOMEPAGE_VAR_ROUTER}}"
+        siteMonitor: "{{HOMEPAGE_VAR_ROUTER}}"
         useEqualHeights: true
 
 - Monitoring:
@@ -356,4 +354,18 @@
         href: "{{HOMEPAGE_VAR_ITTOOLS_URL}}"
         server: my-docker
         container: it-tools
+        useEqualHeights: true
+        
+- The Dorna:
+    - Proxmox:
+        icon: proxmox.png
+        href: "https://{{HOMEPAGE_VAR_THEDORNA_PROXMOX}}"
+        useEqualHeights: true
+    - CasaOS:
+        icon: casaos.png
+        href: "http://{{HOMEPAGE_VAR_THEDORNA_CASAOS}}"
+        useEqualHeights: true
+    - Kopia Dorna:
+        icon: kopia.png
+        href: "http://{{HOMEPAGE_VAR_THEDORNA_KOPIA}}" 
         useEqualHeights: true
