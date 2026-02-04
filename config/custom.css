@@ -1,4 +1,3 @@
-/* Import font terminal modern */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
 
 :root {
@@ -15,7 +14,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Efect de fundal translucid pe carduri */
 .card {
     border: 1px solid var(--cyber-cyan) !important;
     background-color: var(--card-bg) !important;
@@ -31,7 +29,6 @@ body {
     border-color: var(--cyber-magenta) !important;
 }
 
-/* Titluri de secțiune cu glow magenta */
 .section-title {
     color: var(--cyber-magenta) !important;
     text-shadow: 0 0 10px var(--cyber-magenta);
@@ -41,18 +38,15 @@ body {
     margin-bottom: 1rem !important;
 }
 
-/* Barele de resurse (CPU/RAM) neon */
 .graph-bar-filler {
     background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue)) !important;
     box-shadow: 0 0 8px var(--cyber-cyan);
 }
 
-/* Widget-ul de vreme și status */
 .text-xs {
     font-family: 'Fira Code', monospace !important;
     color: var(--cyber-cyan) !important;
 }
 
-/* Scrollbar stilizat */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-thumb { background: var(--cyber-cyan); box-shadow: 0 0 10px var(--cyber-cyan); }

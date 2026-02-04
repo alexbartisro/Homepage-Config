@@ -123,6 +123,32 @@
           url: "http://portainer:9000"
           env: 3
           key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
+    - Kopia:
+        icon: kopia.png
+        description: Photo Archive Backup
+        href: "{{HOMEPAGE_VAR_KOPIA_URL}}"
+        server: my-docker
+        container: kopia
+        useEqualHeights: true
+        widget:
+            type: kopia
+            url: "http://kopia:5115"
+            username: "{{HOMEPAGE_VAR_KOPIA_USERNAME}}"
+            password: "{{HOMEPAGE_VAR_KOPIA_PASS}}"
+    - Tugtainer:
+        icon: tugtainer.png
+        href: "{{HOMEPAGE_VAR_TUGTAINER_URL}}"
+        server: my-docker
+        container: tugtainer
+        useEqualHeights: true
+        widget:
+          type: customapi
+          url: "http://tugtainer:80/api/public/summary"
+          method: GET
+          mappings:
+            - field: "0.by_update_available.true"
+              label: "Updates Available"
+              format: number
     - Proxmox:
         icon: proxmox
         href: "https://proxmox.lan"
@@ -140,28 +166,10 @@
         server: my-docker
         container: duplicati
         useEqualHeights: true
-    - Kopia:
-        icon: kopia.png
-        description: Photo Archive Backup
-        href: "{{HOMEPAGE_VAR_KOPIA_URL}}"
-        server: my-docker
-        container: kopia
-        useEqualHeights: true
-        widget:
-            type: kopia
-            url: "http://kopia:5115"
-            username: "{{HOMEPAGE_VAR_KOPIA_USERNAME}}"
-            password: "{{HOMEPAGE_VAR_KOPIA_PASS}}"
     - iLO Management:
         icon: hp.png
         href: "{{HOMEPAGE_VAR_ILO_IP}}"
         siteMonitor: "{{HOMEPAGE_VAR_ILO_IP}}"
-        useEqualHeights: true
-    - Tugtainer:
-        icon: tugtainer.png
-        href: "{{HOMEPAGE_VAR_TUGTAINER_URL}}"
-        server: my-docker
-        container: tugtainer
         useEqualHeights: true
 
 - Network:
@@ -355,9 +363,15 @@
         server: my-docker
         container: it-tools
         useEqualHeights: true
+    - VSCode:
+        icon: vscode.png
+        href: "{{HOMEPAGE_VAR_CODESERVER_URL}}"
+        server: my-docker
+        container: it-tools
+        useEqualHeights: true
         
 - The Dorna:
-    - Proxmox:
+    - Proxmox Dorna:
         icon: proxmox.png
         href: "https://{{HOMEPAGE_VAR_THEDORNA_PROXMOX}}"
         useEqualHeights: true

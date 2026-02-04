@@ -13,6 +13,7 @@ services:
       - 3000:3000
     volumes:
       - ./config:/app/config
+      - ./config/images:/app/public/images
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /mnt/SSD:/mnt/SSD:ro
       - /mediavault:/mediavault:ro
@@ -36,22 +37,18 @@ services:
       - "traefik.http.routers.homepage.tls.certresolver=cloudflare"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
 
-  samba:
-    image: servercontainers/samba:latest
-    container_name: samba
-    restart: unless-stopped
-    network_mode: host
-    environment:
-      - TZ=Europe/Bucharest
-      - SAMBA_CONF_LOG_LEVEL=1
-      - SAMBA_USERS=${SAMBA_USER};${SAMBA_PASS};1000;1000
-    volumes:
-      - /home/alex/docker/samba/lib:/var/lib/samba
-      - /home/alex/docker/samba/logs:/var/log/samba
-      - /home/alex/docker/samba/config/smb.conf:/etc/samba/smb.conf
-      - /mediavault:/shares/MediaVault
-      - /NAS2:/shares/NAS2
-      - /mnt/SSD/movies:/shares/Movies
+  # samba:
+  #   image: crazymax/samba:latest
+  #   container_name: samba
+  #   network_mode: host
+  #   restart: unless-stopped
+  #   environment:
+  #     - TZ=Europe/Bucharest
+  #     - SAMBA_LOG_LEVEL=1
+  #   volumes:
+  #     - /home/alex/docker/samba/config:/data
+  #     - /mediavault:/shares/MediaVault
+  #     - /NAS2:/shares/NAS2
 
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus

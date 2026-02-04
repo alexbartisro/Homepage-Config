@@ -4,31 +4,32 @@
 
 - Tools:
     - Google Maps:
-      - abbr: Maps
-        icon: google-maps.png
+      - icon: google-maps.png
         href: https://www.google.com/maps
-        description: Maps & Navigation
+    - Google Drive:
+      - icon: google-drive.png
+        href: https://drive.google.com
     - Studio:
-      - abbr: Studio
-        icon: youtube.png
+      - icon: youtube.png
         href: https://studio.youtube.com
     - Gemini:
-      - abbr: Gemini
-        icon: https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/gemini-color.png
+      - icon: https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/gemini-color.png
         href: https://gemini.google.com
-    - Github:
-        - abbr: GH
-          icon: https://github.com/favicon.ico
-          href: https://github.com/
-    - Docker Hub:
-        - abbr: DH
-          icon: https://hub.docker.com/favicon.ico
-          href: https://hub.docker.com/
     - Tailscale Admin:
-        - abbr: TS
-          icon: https://tailscale.com/favicon.ico
+        - icon: https://tailscale.com/favicon.ico
           href: https://login.tailscale.com/admin/machines
-          
+    
+- Development:
+    - Apple Developer:
+        - icon: https://developer.apple.com/assets/elements/icons/xcode-s-dark/xcode-s-dark-256x256_2x.png
+          href: https://developer.apple.com
+    - Docker Hub:
+        - icon: https://hub.docker.com/favicon.ico
+          href: https://hub.docker.com/
+    - Github:
+        - icon: https://github.com/favicon.ico
+          href: https://github.com/
+
 - Social:
     - Reddit:
         - abbr: RE
@@ -51,9 +52,6 @@
         - abbr: YT
           icon: youtube.png
           href: https://youtube.com/
-    - Commafeed:
-        - icon: https://www.commafeed.com/favicon.ico
-          href: https://www.commafeed.com
 - Shopping:
     - Vinted:
         - abbr: VI

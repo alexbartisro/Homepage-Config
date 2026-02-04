@@ -1,11 +1,18 @@
 # ~/docker/homepage/config/settings.yaml
 title: "THE BRAIN // CORE_UNIT"
-background: https://images.alphacoders.com/133/1338304.png
+background:
+  image: "/images/background.jpg"
+  blur: sm # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 50
+  brightness: 35 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 25
+cardBlur: xl
 theme: dark
-color: slate
-cardBlur: sm
-headerStyle: boxedWidgets
+iconStyle: theme
+color: zinc
 target: _self
+useEqualHeights: true
+preloadAllWidgets: true
 #fullWidth: true
 
 layout:
@@ -36,7 +43,7 @@ quicklaunch:
 
 appearance:
   colors:
-    gray:
+   gray:
       900: "#050505"
-    slate:
+   slate:
       700: "rgba(20, 20, 35, 0.8)"
