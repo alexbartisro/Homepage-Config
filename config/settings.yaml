@@ -16,6 +16,10 @@ preloadAllWidgets: true
 #fullWidth: true
 
 layout:
+  Assistant:
+    tab: Main
+    style: card
+    columns: 1
   Media:
     tab: Main
     style: row 
@@ -37,7 +41,8 @@ quicklaunch:
   provider: custom
   url: https://www.ecosia.org/search?method=index&q=
   target: _self
-  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
+  #suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
+  suggestionUrl: https://www.google.com/complete/search?client=chrome&q=
   hideInternetSearch: false
   showSearchSuggestions: true
 

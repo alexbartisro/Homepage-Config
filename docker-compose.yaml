@@ -37,19 +37,6 @@ services:
       - "traefik.http.routers.homepage.tls.certresolver=cloudflare"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
 
-  # samba:
-  #   image: crazymax/samba:latest
-  #   container_name: samba
-  #   network_mode: host
-  #   restart: unless-stopped
-  #   environment:
-  #     - TZ=Europe/Bucharest
-  #     - SAMBA_LOG_LEVEL=1
-  #   volumes:
-  #     - /home/alex/docker/samba/config:/data
-  #     - /mediavault:/shares/MediaVault
-  #     - /NAS2:/shares/NAS2
-
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus
     container_name: scrutiny

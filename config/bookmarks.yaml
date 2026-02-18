@@ -69,3 +69,8 @@
         - abbr: ALI 
           icon: https://www.aliexpress.com/favicon.ico
           href: https://aliexpress.com
+- Lifestyle:
+    - MyFitnessPal:
+        - abbr: MFP
+          icon: https://www.myfitnesspal.com/favicons/apple-touch-icon.png?v=1
+          href: https://www.myfitnesspal.com/
